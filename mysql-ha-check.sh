@@ -43,7 +43,7 @@ Server offline o non raggiungibile: ${mDB}"
 		last_md5="$(/usr/bin/head -n1 "${db_mail_log}" | /usr/bin/tr -d '\n' 2>/dev/null)"
 		last_sha256="$(/usr/bin/tail -n1 "${db_mail_log}" | /usr/bin/tr -d '\n' 2>/dev/null)"
 		if [ "${md5_message}" != "${last_md5}" -o "${sha256_message}" != "${last_sha256}" ]; then
-				echo "${message}" | ${mailScript}
+				echo "${message}" | "${mailScript}""
 				echo "${md5_message}" > "${db_mail_log}"
 				echo "${sha256_message}" >> "${db_mail_log}"
 		fi
