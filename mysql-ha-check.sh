@@ -1,8 +1,8 @@
 #!/bin/bash
 db_mail_log="/var/log/db/dbmail.log"
-mail_to="webmaster"
-from="mymail@mydomain.com"
-to="alerts@mydomain.com"
+
+mail_from="mymail@mydomain.com"
+mail_to="alerts@mydomain.com"
 
 mailScript="smtps_mail_send.sh"
 
@@ -14,8 +14,8 @@ checkArbServers
 
 if [ ${#DBNODES[@]} -ne ${#nodesOk[@]} -o ${#ARBNODES[@]} -ne ${#arbsOk[@]} ]; then
 
-		message="From: ${from}
-To: ${to}
+		message="From: ${mail_from}
+To: ${mail_to}
 Subject: Rilevata anomalia su DB produzione
 "
 		missingDB=()
