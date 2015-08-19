@@ -7,7 +7,7 @@ checkDBServers (){
 	nodesOk=()
 	nodesKO=()
 	for DB in "${DBNODES[@]}"; do
-		/usr/bin/mysqladmin -h ${DB} ping > /dev/null 2>&1 && nodesOk+=( "${DB}" ) || nodesKO+=( "${DB}" )
+		/usr/bin/mysqladmin -h "${DB}" ping > /dev/null 2>&1 && nodesOk+=( "${DB}" ) || nodesKO+=( "${DB}" )
 	done
 }
 
